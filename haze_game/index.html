@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lexend+Deca&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+      integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+      crossorigin="anonymous"
+    ></script>
+    <script src="jquery.ui.touch-punch.min.js"></script>
+    <title>NEXT Academy - Haze Away</title>
+    <meta
+      content="A mini game built with HTML, CSS and Javascript. Learn to code at Next Academy Now!"
+      name="description"
+    />
+    <meta
+      content="A mini game built with HTML, CSS and Javascript. Learn to code at Next Academy Now!"
+      property="og:description"
+    />
+    <meta content="Haze Away | Next Academy" property="og:title" />
+    <meta
+      content="https://ghgistmc.s3.us-east-2.amazonaws.com/Save+Malaysia+from+the+haze!.png"
+      property="og:image"
+    />
+    <meta property="og:url" content="https://nextmy.co/haze" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <!-- Facebook Pixel Code -->
+    <script>
+      !(function(f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function() {
+          n.callMethod
+            ? n.callMethod.apply(n, arguments)
+            : n.queue.push(arguments);
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = "2.0";
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s);
+      })(
+        window,
+        document,
+        "script",
+        "https://connect.facebook.net/en_US/fbevents.js"
+      );
+      fbq("init", "396654043862867");
+      fbq("track", "PageView");
+    </script>
+    <noscript
+      ><img
+        height="1"
+        width="1"
+        style="display:none"
+        src="https://www.facebook.com/tr?id=396654043862867&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Facebook Pixel Code -->
+  </head>
+  <body>
+    <div id="fb-root"></div>
+    <script>
+      (function(d, s, id) {
+        var js,
+          fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src =
+          "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+        fjs.parentNode.insertBefore(js, fjs);
+        setTimeout(() => {
+          d.getElementById("after-game").style.display = "none";
+          d.getElementById("after-game").style.opacity = "1";
+        }, 3000);
+      })(document, "script", "facebook-jssdk");
+    </script>
+    <div id="after-game">
+      <div id="after-modal">
+        <span id="close-button">&times;</span>
+        <h3 id="end-text"></h3>
+        <div id="btn-container">
+          <div
+            class="fb-share-button"
+            data-size="large"
+            data-href="https://nextmy.co/haze"
+            data-layout="button"
+          ></div>
+          <a
+            href="https://twitter.com/share?ref_src=twsrc%5Etfw"
+            class="twitter-share-button"
+            data-size="large"
+            data-text="Hey! See if you can beat my score at saving Malaysia from the haze!"
+            data-url="https://nextmy.co/haze"
+            data-hashtags="hazemalaysia"
+            data-related="nextacademy_"
+            data-show-count="false"
+            >Tweet</a
+          >
+          <script
+            async
+            src="https://platform.twitter.com/widgets.js"
+            charset="utf-8"
+          ></script>
+        </div>
+        <button id="play-again-btn">Play Again?</button>
+      </div>
+    </div>
+    <div id="game-container">
+      <div id="beforeGame">
+        <div id="title-wrapper">
+          <h1 id="game-title">
+            Save <span id="malaysia">Yourself</span>
+            From The Haze
+          </h1>
+          <h2>
+            HOW TO PLAY:
+          </h2>
+          <div class="main-text">
+            <ol>
+              <li>
+                <small
+                  >Click and drag the fan from left to right (The game will
+                  start when you first click on the fan)</small
+                >
+              </li>
+              <li><small>For mobile, tap and drag on the fan</small></li>
+              <li>
+                <small>Blow back the haze as it heads towards you</small>
+              </li>
+              <li>
+                <small>You have 5 misses until the API reaches Hazardous</small>
+              </li>
+            </ol>
+          </div>
+          <button id="play-btn">PLAY</button>
+        </div>
+      </div>
+      <div id="inGame" style="display:none;">
+        <div id="life-bar">
+          <h3>API:</h3>
+          <div id="api-1" class="api-box api-yellow"></div>
+          <div id="api-2" class="api-box api-orange"></div>
+          <div id="api-3" class="api-box api-red"></div>
+          <div id="api-4" class="api-box api-purple"></div>
+          <div id="api-5" class="api-box api-maroon"></div>
+          <h5 id="timer">| Days: 0</h5>
+        </div>
+        <div id="fan-box"></div>
+        <div id="malaysia-flag">
+          <div id="smoke-overlay">
+            <img
+              id="smokeImage-2"
+              src="./images/west malaysia.png"
+              alt="smoke2"
+            />
+            <img id="smokeImage" src="./images/east.png" alt="smoke-overlay" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="footer">
+      <img
+        id="na-logo-footer"
+        src="./images/next-academy-black-notext.png"
+        alt="na-logo-black"
+        width="50"
+        height="50"
+      />
+      <div id="learn-text-container">
+        <small id="sm-footer-txt">
+          Learn to code this with us using HTML, CSS, and JavaScript!
+        </small>
+      </div>
+      <button
+        id="learn-more-btn"
+        onclick="window.location.href='https://www.nextacademy.com/?utm_source=game&utm_medium=button&utm_campaign=haze-away-matt'"
+      >
+        Learn More
+      </button>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
