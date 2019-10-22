@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mooncake Catching Game | Next Academy</title>
+    <meta content="A mini game build with HTML, CSS and Javascript. Learn to code at Next Academy Now!" name="description">
+    <meta content="Mooncake Catching Game | Next Academy" property="og:title">
+    <meta content="https://nextagram-backend.s3-ap-southeast-1.amazonaws.com/mooncakes-bg.png" property="og:image">
+    <meta property="og:url" content="https://mid-autumn-festival-game.netlify.com/" />
+    <link rel="icon" href="mooncake.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <!-- <link rel="moanifest" href="manifest.json" /> -->
+    <!-- Facebook Pixel Code -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '396654043862867');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=396654043862867&ev=PageView&noscript=1"/>
+    </noscript>
+    <!-- End Facebook Pixel Code -->
+</head>
+<body>
+    <!-- Load Facebook SDK for JavaScript -->
+    <div id="fb-root"></div>
+    <script>
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <div class="contain">
+        <div id="board" class="text-center mt-3">
+            <strong id="text" ><span>Score: </span><span id="score">0</span></strong>
+            <br>
+            <span id="countdown">30</span>
+            <br>
+            <div id="start" class="button" >Start Game</div>
+            <br>
+            <div id="intro" class="">Press spacebar / Touch the screen to help Mr. Rabbit to catch the mooncakes.</div>
+        </div>
+        <div class="container"></div>
+        <img id="rabbit" src="rabbit.gif">
+        <div class="moon"></div>
+        <!-- Your share button code -->
+        <div id="fbshare">
+            <div class="fb-share-button" 
+                data-href="https://mid-autumn-festival-game.netlify.com/" 
+                data-layout="button_count">
+            </div>
+        </div>
+    </div>
+
+
+    <div id="banner" class="text-center" style="padding-top: 10px; padding-bottom: 10px;">
+        <div class="row justify-content-md-center">
+            <div class="col-1"><img id="logo" alt="logo" src="next-academy-black-notext.png"></div>
+            <div class="col-7" style="padding-right: 0px"><p id="para" style="margin-bottom: 0px">Learn to code this with us using HTML, CSS, and JavaScript!😎</p></div>
+            <div class="col-3" style="padding: 0px"><a id="nextlink" class="btn btn-primary" href="https://nextmy.co/mid-autumn">Learn Now!</a></div>
+        </div>
+    </div>
+
+
+    <audio loop id="bgMusic" preload="auto">
+        <source src="Goat.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- <button id="showModal" type="button" class="btn btn-primary d-none" data-toggle="modal" data-target="#gameModal"></button> -->
+    <!-- Modal -->
+    <!-- <div class="modal fade" id="gameModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <strong><h5 class="modal-title">Congratulations!</h5></strong>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center">
+                    <p>You get a chance to win a 
+                        <span id="highlight">FREE Next Academy T-shirt</span>! Click the button below to fill up your details! </p>
+                    <a id="form" href="https://docs.google.com/forms/d/e/1FAIpQLSdBc6sMPWyZRIM5gXIsJaZcZvrKG5T5mh99n9choRRKVrtqAg/viewform?usp=sf_link" target="_blank">
+                        Enter NOW!
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <script src="./index.js"></script>
+    <script>
+        let vis = (function(){
+            let stateKey, eventKey, keys = {
+                hidden: "visibilitychange",
+                webkitHidden: "webkitvisibilitychange",
+                mozHidden: "mozvisibilitychange",
+                msHidden: "msvisibilitychange"
+            };
+            for (stateKey in keys) {
+                if (stateKey in document) {
+                    eventKey = keys[stateKey];
+                    break;
+                }
+            }
+            return function(c) {
+                if (c) document.addEventListener(eventKey, c);
+                return !document[stateKey];
+            }
+        })();
+        vis(function(){
+            if (vis()){
+                document.getElementById('bgMusic').play();
+            }
+            document.getElementById('bgMusic').pause();
+        });
+    </script>
+</body>
+</html>
