@@ -1,0 +1,331 @@
+<style>
+  * {
+    font-family: sans-serif;
+    letter-spacing: .1em;
+  }
+
+  body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: black;
+    opacity: 0.7;
+    z-index: -9;
+    background-image: url('v.jpg');
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: 20vw;
+  }
+
+  a:not(#logo):not([class*="carousel-control"]) {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    width: 40%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    padding-left: 1.5%;
+    padding-right: 1.5%;
+    border-radius: 5px;
+    transition: all .3s;
+    height: fit-content;
+    box-sizing: content-box;
+  }
+
+  a:hover:not(#logo):not([class*="carousel-control"]) {
+    padding: 2.5% 2% 2.5% 2%;
+  }
+
+  .hidden {
+    display: none !important;
+  }
+
+  #share {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    flex-wrap: wrap;
+  }
+
+  #share>* {
+    margin: 1%;
+  }
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="Can I trust it? Quiz 🤔🤔" />
+<meta property="og:description"
+  content="Check out if you're prone to being hacked. This quiz is aimed to raise awareness of the dangers from blindly trusting a website." />
+<meta property="og:image" content="https://canitrustit.netlify.com/anotherthumb.png" />
+<meta name="twitter:card" content="summary_large_image">
+<link rel="manifest" href="manifest.json" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+  integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+  integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+  integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
+</script>
+
+<body style="background-color: #0117b2; text-align: center;">
+  <p style="margin-top: 7vh; color: white; display: flex; justify-content: center; align-items: center;">
+    Created by <a target="_blank" style="width: 10vh; margin-left: .5%;" href="https://www.nextacademy.com/">
+      <img id="logo"
+        src="https://uploads-ssl.webflow.com/5c7e6e3d10414d96d14fad7e/5cde7ce11beecff897682c27_nav-logo-white.svg" /></a>
+  </p>
+  <h1 style="font-size: 6em; padding: 2%; margin: auto; border-radius: 5px; margin-top: 1%; color: white;">
+    CAN I TRUST
+    IT?
+  </h1>
+  <p id="intro" style="display: inline-block; width: 90%; color: white;">
+    Too many people are getting hacked these days. Life savings were lost, reputation & identity stolen and ruined, some
+    are even blackmailed or extorted.
+    <br>
+    We want to raise <strong>#CyberSecurityAwareness</strong> and it starts with you!
+    <br>
+    Here is a quiz with common hacker tactics, are you able to spot them all?
+
+    <br><br>
+    <small>No accounts or persons are being harmed in the process of making this quiz. These are just examples and does
+      not reflect to the actual site. ☺️</small>
+  </p>
+  <div id="share">
+    <iframe
+      src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fcanitrustit.netlify.com%2F&layout=button_count&size=large&width=88&height=28"
+      width="87" height="28" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"
+      allow="encrypted-media"></iframe>
+    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large"
+      data-url="https://canitrustit.netlify.com/" data-show-count="true">Tweet</a>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <a style="width: fit-content; background-color: rgb(13,193,67); color: white; border-radius: 3px; padding: 5px; text-decoration: none;"
+      href="https://wa.me/?text=https%3A%2F%2Fcanitrustit.netlify.com%2F" target="_blank">Whatsapp</a>
+  </div>
+  <p style="color: white;">© 2019 NEXT Academy by Eleventh Division Pte Ltd</p>
+  <script>
+    const mobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+    const createCarousel = (inner) => {
+      share.insertAdjacentHTML('afterend', `
+        <div id="carousel" class="carousel slide" data-ride="carousel" data-interval=false data-wrap=false data-keyboard=false>
+          <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev" style="z-index: 1;">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <div id="status" style="height: 100%; display: flex; align-items: center; position: absolute; right: 0; width: 15%; justify-content: center; color: white;">${answered}/${questions.length}</div>
+          <div class="carousel-inner">
+            ${inner}
+          </div>
+        </div>
+        `)
+    }
+    const createList = (inner) => {
+      share.insertAdjacentHTML('afterend', `
+        <div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap;">
+          ${inner}
+        </div>
+        `)
+    }
+    let questions = [{
+        description: 'You can always determine if a website is legit by checking the URL. In this case, the site you\'re visiting is "NEXT Academy" so if the URL spells out "nextacademy" correctly, it should be legit.<br><br>If you\'re still unsure, you can always contact them via social media, phone calls or emails.',
+        valid: true,
+        image: 's1.png',
+        q: "You want to check out NEXT Academy's website. Is this the correct website?"
+      },
+      {
+        q: "You want to access your CIMB bank account. Is this the correct website?",
+        valid: false,
+        description: 'It may look the same but notice that the URL is "clmb.com.my" instead of "cimb.com.my"? The letter "l" and "i" do look alike! Hackers use this technique to phish for your username and password.',
+        image: "s2.png"
+      },
+      {
+        q: "You received an email asking you to log in to your maybank2u.com.my account. Is this a legit email?",
+        valid: false,
+        description: `
+          Firstly, look at the email address business name. It should be "@maybank2u.com.my" but it is "@maybenk2u.com.my". Notice the "a" and the "e"?
+          <br><br>
+          Always check a button or link in an email by hovering over it with your mouse, your browser should show you where is the destination of the link / button at the lower left corner of the broser window
+          <br><br>
+          For mobile users, you can press and hold the link and it will show up as a pop up.
+          <br><br>
+          If you are unsure, call the bank's customer care hotline.
+          `,
+        image: "s3.png"
+      },
+      {
+        description: 'Firstly, look at the email address business name. It should be "@paypal.com" but it is "@xxx".',
+        valid: false,
+        image: '3.png',
+        q: 'You received an email asking you to log in to your Paypal account. Is this a legit email?'
+      },
+      {
+        q: 'Is this website ok for you to browse and look around?',
+        valid: true,
+        description: 'It is ok for you to <strong>browse</strong> any HTTP or HTTPS websites. HTTP websites are not secure (no lock) while HTTPS websites are secure (lock). Browsing is ok for both.',
+        image: 's4.png'
+      },
+      {
+        q: 'Is it ok for you to log in to this website?',
+        valid: false,
+        description: `
+          HTTP websites (http://.....) are <strong>NOT SECURE</strong>. This means that it is susceptible to hacking and hackers can easily get your username and password from HTTP websites.
+          <br><br>
+          Anything that requires you to login or any other important websites should be using HTTPS. That's why all bank websites use HTTPS. S stands for secure!
+          `,
+        image: 's5.png'
+      },
+      {
+        image: 'wifi.jpg',
+        q: 'You are on a public Wi-Fi and you decide to browse a HTTP website. Is it ok?',
+        valid: true,
+        description: `
+          It's okay if you're only visiting to browse BUT you should not login to any accounts on a HTTP website. Public Wi-Fis are the most susceptible to hacking. If you log in to HTTP websites via public Wi-Fi, say good bye to your username and password. For that very reason, it's best for you to just stay away.
+          <br><br>
+          (By the way, your home Wi-Fi can be hacked too. Hackers would still be able to get your login credentials from HTTP websites.)
+          `
+      },
+      {
+        q: 'You are asked to log in to your Amazon account. Should you immediately click on it?',
+        valid: false,
+        description: `
+          General rule of thumb, never click on any links or attachments in emails.<br>
+          Always check a button or link in an email by hovering over it with your mouse, your browser should show you where is the destination of the link / button at the lower left corner of the browser window.
+          <br><br>
+          For mobile users, you can press and hold the link and it will show up as a pop up.
+          <br><br>
+          If you are unsure, call the Amazon's Call Centre.`,
+        image: 's6.png'
+      },
+      {
+        image: 'unkown.jpg',
+        q: 'You receive a call from an UNKNOWN NUMBER. The caller said that she is from your bank and that your card has been misused. She wanted to help you to deactivate your credit card. She then asked you for the 6-digit pin to your bank account. Should you do it?',
+        valid: false,
+        description: `
+          Do not disclose any confidential information especially any pin or password. Banks will not ask you for these information. This is a scammer trying to get your confidential information.
+          <br><br>
+          What you can do is to get her information, hang up and call the bank's official customer care hotline.
+          `
+      },
+      {
+        image: 'login.png',
+        q: 'You should use different usernames and passwords for all your important accounts.',
+        valid: true,
+        description: 'This would be the best practice because hackers are good at reusing the same username and password across different accounts. If one of your accounts is compromised, your other accounts will still be safe.'
+      },
+      {
+        q: `Someone sent you a PDF file. Should you open it?`,
+        valid: false,
+        image: 's7.png',
+        description: 'Hackers use PDF files to send malicious code and softwares. They might also send .doc or .exe files which are even more dangerous.<br><br>Generally it\'s better to just not accept any documents from people you don\'t know.'
+      }
+    ]
+    temp = []
+    while (questions.length) {
+      const index = parseInt(Math.random() * questions.length)
+      temp = temp.concat(questions.splice(index, 1))
+    }
+    questions = temp
+    let correct = 0
+    let answered = 0
+    let container = ''
+    questions.forEach(({
+      valid,
+      description,
+      image,
+      q
+    }, index) => {
+      container += `
+          ${!mobile ? `<div class="carousel-item ${index == 0 ? "active" : ""}"><div style="box-sizing: border-box;">` : ""}
+            <div class="cards" style="padding: 5%; box-sizing: border-box; margin: 10%; background-color: white; border-radius: 10px;  transition-property: all; transition-duration: 0.5s;">
+              <div style="background-color: white; padding-top: 5%;">
+                ${image ? `<img class="images" width="${mobile ? "100%" : "60%"}" title="Click to enlarge" style="cursor: pointer; border: 1px solid black" src="${image}"><br>` : ""}
+                ${q ? `<p style="display: inline-block; padding-top: 5%;">${q}</p>` : ""}
+              </div>
+              <div>
+                <div style="padding-top: 5%; display: flex; justify-content: space-around; align-items: center;">
+                  <a onclick="handleClick(${valid})" style="background-color: ${index == questions.length - 2 ? "green" : "firebrick"};" href="#">NO</a>
+                  <a onclick="handleClick(${valid})" style="background-color: ${index == questions.length - 2 ? "firebrick" : "green"};" href="#">YES</a>
+                </div>
+                <div class="hidden" style="background-color: white; padding: 5%; word-wrap: break-word;">
+                  <h2>Error</h2>
+                  ${description}
+                </div>
+              </div>
+            </div>
+          ${!mobile ? "</div></div>" : ""}
+        `
+    })
+    if (mobile) {
+      createList(container)
+    } else {
+      createCarousel(container)
+    }
+    const handleClick = (ans) => {
+      event.preventDefault()
+      answered += 1
+      $('#status').html(`${answered}/${questions.length}`)
+      if (!mobile) {
+        event.target.parentElement.parentElement.parentElement.parentElement.parentElement.classList.add("answered")
+      }
+      if ((event.target.innerHTML == "YES" && ans == true) || (event.target.innerHTML == "NO" && ans == false)) {
+        event.target.parentElement.parentElement.parentElement.style.backgroundColor = "#79ce79"
+        event.target.parentElement.parentElement.querySelector("h2").innerHTML = "Correct!"
+        correct += 1
+      } else {
+        event.target.parentElement.parentElement.parentElement.style.backgroundColor = "#ff9090"
+        event.target.parentElement.parentElement.querySelector("h2").innerHTML = "Wrong!"
+      }
+      for (let i = 0; i < event.target.parentElement.parentElement.children.length; i++) {
+        event.target.parentElement.parentElement.children[i].classList.toggle("hidden")
+      }
+      if (answered == questions.length) {
+        event.target.parentElement.parentElement.children[event.target.parentElement.parentElement.children.length -
+          1].innerHTML += `
+            <br><br><a id="resultButton" style="background-color: #00062f;" href="#" target="_blank">Check my result</a>
+          `
+        if (correct == questions.length) {
+          resultButton.href = "correct.html?done"
+        } else {
+          resultButton.href = "notthere.html?done"
+        }
+      } else {
+        if (!mobile) {
+          event.target.parentElement.parentElement.children[event.target.parentElement.parentElement.children.length -
+            1].innerHTML += `
+            <br><br>
+            <a href="#carousel" role="button" data-slide="next" style="background-color: deepskyblue;"">
+              NEXT
+            </a>
+            `
+          // if (mobile) {
+          //   event.target.parentElement.parentElement.parentElement.nextElementSibling.scrollIntoView(true)
+          // }
+        }
+      }
+    }
+    const images = document.querySelectorAll("img.images")
+    images.forEach(i => {
+      i.onclick = () => {
+        window.open(i.src, "_blank")
+      }
+    })
+    if (!mobile) {
+      $(".cards").css("margin-left", "5%")
+      $(".cards").css("margin-right", "5%")
+      $("h1").css("font-size", "5em")
+    }
+    // $('#carousel').on('slid.bs.carousel', () => {
+    //   const slide = document.querySelector(".active")
+    //   if (slide.classList.contains("answered")) {
+    //     document.querySelector(".carousel-control-next").style.pointerEvents = ""
+    //   } else {
+    //     document.querySelector(".carousel-control-next").style.pointerEvents = "none"
+    //   }
+    // })
+  </script>
+</body>

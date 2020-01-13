@@ -1,0 +1,93 @@
+<script>
+  const params = new URLSearchParams(window.location.search)
+  if (!params.has("done")) {
+    window.location.href = "/"
+  }
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="Can I trust it? Quiz 🤔🤔" />
+<meta property="og:description"
+  content="Check out if you're prone to being hacked. This quiz is aimed to raise awareness of the dangers from blindly trusting a website." />
+<meta property="og:url" content="https://canitrustit.netlify.com/notthere.html" />
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="https://canitrustit.netlify.com/fail.png" />
+<style>
+  * {
+    font-family: sans-serif;
+    letter-spacing: .1em;
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    background-color: #0117b2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: black;
+    opacity: 0.7;
+    z-index: -9;
+    background-image: url('v.jpg');
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: 20vw;
+  }
+
+  div {
+    border-radius: 5px;
+    background-color: white;
+    padding: 5%;
+    width: 80%;
+  }
+
+  #share {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    flex-wrap: wrap;
+  }
+
+  #share>* {
+    margin: 1%;
+  }
+</style>
+<div>
+  <h1>Oh noes!😱😱</h1>
+  <p>You didn't get a perfect score for the test, you have to be more careful!</p>
+  In conclusion, hackers are becoming more and more sophisticated. As everyday users of the internet, we want to be able
+  to minimise as much human errors as possible. A lot of people are hacked due to their own negligence and
+  misinformation.
+  <br><br>
+  Let's be informed!.
+  <br><br>
+  Share it with your friends and family to make sure they are educated on how to be safe while diving into the digital
+  world!
+  <div id="share">
+    <iframe
+      src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fcanitrustit.netlify.com%2Fnotthere.html%2F&layout=button_count&size=large&width=88&height=28"
+      width="87" height="28" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"
+      allow="encrypted-media"></iframe>
+    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large"
+      data-url="https://canitrustit.netlify.com/" data-show-count="true">Tweet</a>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <a style="width: fit-content; background-color: rgb(13,193,67); color: white; border-radius: 3px; padding: 5px; text-decoration: none;"
+      href="https://wa.me/?text=https%3A%2F%2Fcanitrustit.netlify.com%2F" target="_blank">Whatsapp</a>
+  </div>
+  <p>
+    This quiz is created by NEXT Academy, SEA's Best Full Stack Coding & Digital Marketing School, based in Kuala
+    Lumpur, Malaysia.
+    <br><br><br>
+    You can visit us <a href="https://www.nextacademy.com/" target="_blank">here</a>!
+  </p>
+</div>
